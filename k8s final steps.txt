@@ -1,0 +1,16 @@
+On master:
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+On nodes run this command:
+
+kubeadm join 172.31.16.128:6443 --token fpojob.ggepjvu2rjeu0f9p \
+    --discovery-token-ca-cert-hash sha256:3b5eccb9b7b497648f2bfd4e3123f2352c36a7c1ec0834a3dad2571076802585
+
+On master:
+
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version|base64| tr -d '\n')"
