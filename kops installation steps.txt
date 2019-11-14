@@ -1,0 +1,92 @@
+region N.vergina
+
+Domine name freenom
+1)suneel.ga
+2)senario.tk
+
+we have to use this initally for any new domine to create clusters
+
+kops create cluster \
+--state=${KOPS_STATE_STORE} \
+--node-count=2 \
+--master-size=t2.micro \
+--node-size=t2.micro \
+--zones=us-east-1a,us-east-1b \
+--name=${KOPS_CLUSTER_NAME} \
+--dns public \
+--master-count 1
+
+To login to the master through kops
+
+ssh admin@api.senario.ga
+
+
+Suggestions:
+ * list clusters with: kops get cluster
+ * edit this cluster with: kops edit cluster senario.tk
+ * edit your node instance group: kops edit ig --name=senario.tk nodes
+ * edit your master instance group: kops edit ig --name=senario.tk master-us-east-1a
+
+Finally configure your cluster with: kops update cluster --name senario.tk --yes
+
+
+
+Suggestions:
+ * validate cluster: kops validate cluster
+ * list nodes: kubectl get nodes --show-labels
+ * ssh to the master: ssh -i ~/.ssh/id_rsa admin@api.senario.tk
+ * the admin user is specific to Debian. If not using Debian please use the appropriate user based on your OS.
+ * read about installing addons at: https://github.com/kubernetes/kops/blob/master/docs/addons.md.
+
+
+
+[ec2-user@ip-172-31-10-40 ~]$
+
+https://api.suneel.ga/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/namespace?namespace=_all
+
+
+Suggestions:
+ * validate cluster: kops validate cluster
+ * list nodes: kubectl get nodes --show-labels
+ * ssh to the master: ssh -i ~/.ssh/id_rsa admin@api.suneel.ga
+ * the admin user is specific to Debian. If not using Debian please use the appropriate user based on your OS.
+ * read about installing addons at: https://github.com/kubernetes/kops/blob/master/docs/addons.md.
+
+
+https://api.senario.tk/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/namespace?namespace=_all
+
+
+
+
+
+
+aws s3 mb s3://mahakube.tk.k8s --region us-east-1
+
+
+
+
+30572
+
+
+
+suneel0526/tomimg
+
+
+aws s3 mb s3://senario.tk.k8s --region us-east-1
+
+dashboard password:
+NJ594EPLvEzeyCyhl8e2SaE7SjeHnco1
+
+filename with .yml extension
+under ec2 
+mkdir suneel
+cd suneel
+vi k8s-admin-dashboard.yaml
+
+kubectl  create -f k8s-admin-dashboard.yaml
+
+
+To access the dashboard through web browser:
+
+https://api.senario.tk/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/namespace?namespace=_all
+
