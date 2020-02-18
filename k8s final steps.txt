@@ -2,6 +2,8 @@ On master:
 
 To start using your cluster, you need to run the following as a regular user:
 
+kubeadm init
+
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
