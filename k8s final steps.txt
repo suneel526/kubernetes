@@ -16,3 +16,8 @@ kubeadm join 172.31.16.128:6443 --token fpojob.ggepjvu2rjeu0f9p \
 On master:
 
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version|base64| tr -d '\n')"
+
+
+cd .kube/
+ls
+cat .kube/config
